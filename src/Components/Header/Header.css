@@ -1,0 +1,67 @@
+.myheader-header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: #111;
+    padding: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.myheader-header-container {
+    max-width: 1200px;
+    margin: 0;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.myheader-logo {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+.myheader-nav-links {
+    display: flex;
+    gap: 30px;
+    margin-right: 200px;
+}
+
+.myheader-nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.myheader-nav-links a:hover {
+    color: white;
+}
+
+.myheader-nav-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: #aaa;
+    font-size: 1rem;
+    font-weight: 300;
+    /* Light/thin font weight */
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-family: inherit;
+    /* Use same font as rest of site */
+}
+
+.myheader-nav-button:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* Remove default button focus outline */
+.myheader-nav-button:focus {
+    outline: none;
+}

@@ -1,0 +1,47 @@
+.footer {
+    width: 100vw;
+    background-color: #1a1a1a;
+    padding: 30px 0;
+    /* Increased vertical padding */
+    border-top: 1px solid #333;
+    text-align: center;
+    /* Center all content */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    gap: 15px;
+    /* Space between copyright and links */
+}
+
+.copyright {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    /* Center the links horizontally */
+    gap: 15px;
+    /* Space between links */
+}
+
+.social-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: white;
+}
+
+/* Remove the pipe separators' default margins */
+.social-links span {
+    color: #555;
+}
