@@ -1,0 +1,77 @@
+-- ================================
+-- Database Creation
+-- ================================
+CREATE DATABASE DabbaExpressDB;
+GO
+
+USE DabbaExpressDB;
+GO
+
+-- ================================
+-- Users Table
+-- ================================
+CREATE TABLE Users (
+    user_id INT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(15),
+    address TEXT,
+    role VARCHAR(20) CHECK (role IN ('User', 'Delivery', 'Admin')) NOT NULL,
+    created_at DATETIME DEFAULT GETDATE()
+);
+GO
+
+-- ================================
+-- Products Table
+-- ================================
+CREATE TABLE Products (
+    product_id INT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    stock_quantity INT NOT NULL,
+    image_url VARCHAR(255)
+);
+GO
+
+-- ================================
+-- Orders Table
+-- ================================
+CREATE TABLE Orders (
+    order_id INT IDENTITY(1,1) PRIMARY KEY,
+    user_id INT NOT NULL,
+    delivery_person_id INT,
+    order_status VARCHAR(20) CHECK (order_status IN ('Placed', 'Preparing', 'OutForDelivery', 'Delivered', 'Cancelled')) NOT NULL DEFAULT 'Placed',
+    order_date DATETIME DEFAULT GETDATE(),
+    total_amount DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (delivery_person_id) REFERENCES Users(user_id)
+);
+GO
+
+-- ================================
+-- Order_Items Table
+-- ================================
+CREATE TABLE Order_Items (
+    order_item_id INT IDENTITY(1,1) PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+GO
+
+-- ================================
+-- Delivery_Tracking Table
+-- ================================
+CREATE TABLE Delivery_Tracking (
+    tracking_id INT IDENTITY(1,1) PRIMARY KEY,
+    order_id INT NOT NULL,
+    current_status VARCHAR(20) CHECK (current_status IN ('Preparing', 'OutForDelivery', 'NearYou', 'Delivered')),
+    location_text VARCHAR(255),
+    updated_at DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+);
+GO
