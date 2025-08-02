@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
+import '../Images/Headerlogo.jepg';
 
 const Header = () => {
     const navigate = useNavigate();
