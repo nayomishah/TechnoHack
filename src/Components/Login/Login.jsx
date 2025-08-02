@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";  // <-- import here
 import logo from "../Images/Headerlogo.jpeg";
 
 const Login = () => {
@@ -9,7 +10,10 @@ const Login = () => {
     password: "",
     phone: "",
     address: "",
+    role: "User",
   });
+
+  const navigate = useNavigate();  // <-- initialize navigate
 
   const handleToggle = () => {
     setIsLogin(!isLogin);
@@ -19,21 +23,58 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
     if (isLogin) {
-      alert("Logging In...");
-      // API Call for Login Here
+      // LOGIN API CALL
+      try {
+        const response = await fetch("http://localhost:5088/api/Users/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          localStorage.setItem("token", data.token);
+          alert("Login Successful");
+          console.log("Token:", data.token);
+          navigate("/"); // <-- redirect to homepage
+        } else {
+          alert(data);
+        }
+      } catch (error) {
+        console.error("Login Error:", error);
+        alert("An error occurred during login.");
+      }
     } else {
-      alert("Registering...");
-      // API Call for Signup Here
+      // REGISTER API CALL (unchanged)
+      try {
+        const response = await fetch("http://localhost:5088/api/Users/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          alert("Registration Successful! Please Login.");
+          setIsLogin(true);
+        } else {
+          const errorText = await response.text();
+          alert("Registration Failed: " + errorText);
+        }
+      } catch (error) {
+        console.error("Registration Error:", error);
+        alert("An error occurred during registration.");
+      }
     }
   };
 
   return (
     <div style={styles.container}>
-      {/* <h1 style={styles.heading}>Dabba Express</h1> */}
       <div style={styles.contentWrapper}>
         <div style={styles.formContainer}>
           <h2 style={styles.formTitle}>{isLogin ? "Login" : "Sign Up"}</h2>
@@ -67,6 +108,18 @@ const Login = () => {
                   required
                   autoComplete="street-address"
                 />
+                {/* Add dropdown for role */}
+                <select
+                  name="role"
+                  value={formData.role}
+                  onChange={handleChange}
+                  style={{ ...styles.input, cursor: "pointer" }}
+                  required
+                >
+                  <option value="User">User</option>
+                  <option value="Delivery">Delivery</option>
+                  <option value="Admin">Admin</option>
+                </select>
               </>
             )}
             <input
@@ -105,7 +158,6 @@ const Login = () => {
     </div>
   );
 };
-
 const styles = {
   container: {
     minHeight: "100vh",
