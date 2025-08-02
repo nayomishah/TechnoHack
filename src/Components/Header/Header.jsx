@@ -20,28 +20,32 @@ const Header = () => {
     return (
         <header className="myheader-header">
             <div className="myheader-header-container">
+                {/* LEFT: Logo */}
                 <div className="myheader-logo-container" onClick={() => handleNavigation('/')}>
                     <img src={logo} alt="Logo" className="myheader-logo-image" />
                     <span className="myheader-logo-text">Dabba Express</span>
                 </div>
-                <nav className="myheader-nav-links">
+
+                {/* MIDDLE: Main Nav */}
+                <div className="myheader-center-nav">
                     <button className="myheader-nav-button" onClick={() => handleNavigation('/')}>Home</button>
                     <button className="myheader-nav-button" onClick={() => handleNavigation('/categories')}>Categories</button>
+                </div>
 
-                    {/* New elements */}
+                {/* RIGHT: Search, Cart, Login */}
+                <div className="myheader-right-section">
                     <div className="myheader-search-container">
                         <input type="text" placeholder="       Search..." className="myheader-search-input" />
                     </div>
-                    <button className="myheader-nav-button" onClick={() => handleNavigation('/signin')}>
-                        <img src={signinIcon} alt="Sign In" className="myheader-icon" />
-                        Sign In
-                    </button>
                     <button className="myheader-nav-button" onClick={() => handleNavigation('/cart')}>
                         <img src={cartIcon} alt="Cart" className="myheader-icon" />
                         Cart
                     </button>
-
-                </nav>
+                    <button className="myheader-login-button" onClick={() => handleNavigation('/login')}>
+                        <img src={signinIcon} alt="Sign In" className="myheader-icon" />
+                        Login
+                    </button>
+                </div>
             </div>
         </header>
     );
