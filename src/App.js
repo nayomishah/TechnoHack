@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import HomePage from './Components/Home/HomePage';
 import Login from './Components/Login/Login';
+import 'leaflet/dist/leaflet.css';
 
 function AppContent() {
   const location = useLocation();

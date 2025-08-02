@@ -6,17 +6,20 @@ import chinese from "../Images/chinese.png";
 import noodles from "../Images/noodles.png";
 import shake from "../Images/shake.png";
 import chhole from "../Images/chhole.png";
-import dabba from "../Images/dabbaimage.jpg";
+import pizza from "../Images/pizza.png";
 import biryani from "../Images/biryani.png";
 import fresh from "../Images/fresh.png";
 import fast from "../Images/fast.png";
 import support from "../Images/support.png";
+import UserLocationMap from "../Maplayout/MapLayout";
 
 const categories = [
   { name: "Chinese", image: chinese },
   { name: "Noodles", image: noodles },
   { name: "Shake", image: shake },
   { name: "Biryani", image: biryani },
+    { name: "Pizza", image: pizza },
+
   //   { name: "Khichdi", image: "/assets/khichdi.png" },
   { name: "Chole Bhature", image: chhole },
   //   { name: "Lassi", image: "/assets/lassi.png" },
@@ -55,6 +58,10 @@ const HomePage = () => {
           ))}
         </div>
       </div>
+
+      {/* <div className="map-section" style={{ padding: "2rem 5%" }}>
+        <UserLocationMap />
+      </div> */}
 
       <section className="features-section">
         <h2>Why Choose Us?</h2>
