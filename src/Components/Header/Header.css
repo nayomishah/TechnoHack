@@ -5,7 +5,6 @@
     background-color: #fff;
     padding: 0;
     z-index: 1000;
-    border-bottom: 1px solid #333;
 }
 
 .myheader-header-container {
@@ -17,51 +16,72 @@
     align-items: center;
 }
 
-.myheader-logo {
-    margin: 0;
+.myheader-logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.myheader-logo-image {
+    height: 40px;
+    /* Adjust size as needed */
+    width: auto;
+}
+
+.myheader-logo-text {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-right: auto;
+    color: #000;
 }
 
 .myheader-nav-links {
     display: flex;
+    align-items: center;
+    /* Align items in the center */
     gap: 30px;
-    margin-right: 200px;
 }
 
-.myheader-nav-links a {
-    color: #aaa;
-    text-decoration: none;
-    transition: color 0.3s;
+.myheader-icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
-.myheader-nav-links a:hover {
-    color: white;
+.myheader-search-input {
+    padding-left: 32px;
+    /* Make space for icon */
+    background-image: url('../Images/magnifying-glass.png');
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-size: 15px 15px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.myheader-search-input {
+    padding: 2px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
 }
 
 .myheader-nav-button {
     background: none;
     border: none;
     padding: 0;
-    margin: 0;
-    color: #aaa;
+    color: black;
     font-size: 1rem;
     font-weight: 300;
-    /* Light/thin font weight */
     cursor: pointer;
-    text-decoration: none;
     transition: color 0.3s;
-    font-family: inherit;
-    /* Use same font as rest of site */
 }
 
 .myheader-nav-button:hover {
-    color: white;
-    text-decoration: none;
+    color: #888;
 }
 
-/* Remove default button focus outline */
 .myheader-nav-button:focus {
     outline: none;
 }

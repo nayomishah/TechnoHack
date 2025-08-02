@@ -1,35 +1,46 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
-
+import logo from '../Images/Headerlogobike.jpeg';
+import signinIcon from '../Images/log-out.png';
+import cartIcon from '../Images/shopping-cart.png';
+import searchIcon from "../Images/magnifying-glass.png";
+//dabbaexpress\src\Components\Images\magnifying-glass.png
 const Header = () => {
     const navigate = useNavigate();
 
     const handleNavigation = (path) => {
-        // First scroll to top immediately
         window.scrollTo(0, 0);
-
-        // Then navigate
         navigate(path);
-
-        // Additional scroll for smoothness (works in most cases)
         setTimeout(() => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 0);
     };
 
     return (
         <header className="myheader-header">
             <div className="myheader-header-container">
-                <h1 className="myheader-logo">Dabba Express</h1>
+                <div className="myheader-logo-container" onClick={() => handleNavigation('/')}>
+                    <img src={logo} alt="Logo" className="myheader-logo-image" />
+                    <span className="myheader-logo-text">Dabba Express</span>
+                </div>
                 <nav className="myheader-nav-links">
                     <button className="myheader-nav-button" onClick={() => handleNavigation('/')}>Home</button>
                     <button className="myheader-nav-button" onClick={() => handleNavigation('/categories')}>Categories</button>
-                    <button className="myheader-nav-button" onClick={() => handleNavigation('/aboutus')}>About Us</button>
-                    <button className="myheader-nav-button" onClick={() => handleNavigation('/contactus')}>Contact Us</button>
+
+                    {/* New elements */}
+                    <div className="myheader-search-container">
+                        <input type="text" placeholder="       Search..." className="myheader-search-input" />
+                    </div>
+                    <button className="myheader-nav-button" onClick={() => handleNavigation('/signin')}>
+                        <img src={signinIcon} alt="Sign In" className="myheader-icon" />
+                        Sign In
+                    </button>
+                    <button className="myheader-nav-button" onClick={() => handleNavigation('/cart')}>
+                        <img src={cartIcon} alt="Cart" className="myheader-icon" />
+                        Cart
+                    </button>
+
                 </nav>
             </div>
         </header>
