@@ -1,0 +1,156 @@
+.home-container {
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+  margin-top: 60px;
+}
+
+.map-section {
+  margin-bottom: 2rem;
+}
+
+.category-section {
+  padding: 3rem 10%;
+  background-color: #fff;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.category-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.category-item {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.category-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #f2f2f2;
+  margin-bottom: 0.5rem;
+}
+
+.category-item p {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 5%;
+  /* background: #fff5e6; */
+  background-image: url('../Images/bg.png'); 
+  background-size: cover;  
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  color: #f2f2f2;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: #ff6b00;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.order-button {
+  padding: 0.8rem 2rem;
+  background-color: #ff6b00;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.order-button:hover {
+  background-color: #e65c00;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+.hero-image img {
+  max-width: 90%;
+  height: auto;
+}
+
+.features-section {
+  padding: 3rem 5%;
+  background: #fff;
+  text-align: center;
+}
+
+.features-section h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #444;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.feature-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card img {
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.cta-section {
+  padding: 3rem 5%;
+  background: #ff6b00;
+  color: white;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cta-section p {
+  margin-bottom: 1rem;
+}

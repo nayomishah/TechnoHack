@@ -5,63 +5,201 @@
     background-color: #fff;
     padding: 0;
     z-index: 1000;
-    border-bottom: 1px solid #333;
 }
 
-.myheader-header-container {
-    max-width: 1200px;
-    margin: 0;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+
+.myheader-logo-image {
+    height: 40px;
+    /* Adjust size as needed */
+    width: auto;
 }
 
-.myheader-logo {
-    margin: 0;
+.myheader-logo-text {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-right: auto;
+    color: #000;
 }
 
 .myheader-nav-links {
     display: flex;
+    align-items: center;
+    /* Align items in the center */
     gap: 30px;
-    margin-right: 200px;
 }
 
-.myheader-nav-links a {
-    color: #aaa;
-    text-decoration: none;
-    transition: color 0.3s;
+.myheader-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-grow: 1;
 }
 
-.myheader-nav-links a:hover {
+.myheader-right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    /* pushes to right */
+}
+
+.myheader-login-button {
+    background-color: orange;
     color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.myheader-login-button img {
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+}
+
+.myheader-login-button:hover {
+    background-color: darkorange;
+}
+
+
+.myheader-icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.myheader-search-input {
+    padding-left: 32px;
+    /* Make space for icon */
+    background-image: url('../Images/magnifying-glass.png');
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-size: 15px 15px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.myheader-search-input {
+    padding: 2px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
 }
 
 .myheader-nav-button {
     background: none;
     border: none;
     padding: 0;
-    margin: 0;
-    color: #aaa;
+    color: black;
     font-size: 1rem;
     font-weight: 300;
-    /* Light/thin font weight */
     cursor: pointer;
-    text-decoration: none;
     transition: color 0.3s;
-    font-family: inherit;
-    /* Use same font as rest of site */
 }
 
 .myheader-nav-button:hover {
-    color: white;
-    text-decoration: none;
+    color: #888;
 }
 
-/* Remove default button focus outline */
 .myheader-nav-button:focus {
     outline: none;
+}
+
+.myheader-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    width: 100%;
+}
+
+.myheader-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    flex: 1;
+    flex-wrap: nowrap;
+    /* prevents items from wrapping to next line */
+}
+
+.myheader-center-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.myheader-right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.myheader-nav-button {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.myheader-icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+}
+
+.myheader-search-input {
+    padding-left: 32px;
+    background-image: url('../Images/magnifying-glass.png');
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-size: 15px 15px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.myheader-login-button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.myheader-login-button:hover {
+    background-color: darkorange;
+}
+
+.myheader-center-nav {
+    display: flex;
+    flex-direction: row;
+    /* Ensure horizontal layout */
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: nowrap;
+    /* Prevent stacking */
 }
